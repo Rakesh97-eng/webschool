@@ -1,0 +1,106 @@
+<html>
+
+<div>Name <input id="nm" /></div>
+<div>Gender <input id="gd" /></div>
+<div>Area <input id="ar" /></div>
+<button onclick="check()">Submit</button>
+<div>Form no <input id="number"></div>
+<button onclick="edit()">Edit</button>
+
+<script>
+    details = [];
+    console.log(details)
+
+    function save() {
+
+        var value1 = document.getElementById('nm').value;
+        value2 = document.getElementById('gd').value;
+        value3 = document.getElementById('ar').value;
+
+        if (value1 == '' && value2== '' && value3 == '') {
+            alert('enter all values')
+        }
+        else {
+            if (value1 == '' && value2 == '') {
+                alert('enter name and gender')
+            }
+            else if (value2 == '' && value3 == '') {
+                alert('enter gender and area')
+            }
+            else if (value1 == '' && value3 == '') {
+                alert('enter area and name')
+            }
+            else if (value1 == '') {
+                alert('enter name')
+            }
+            else if (value2 == '') {
+                alert('enter gender')
+            }
+            else if (value3 == '') {
+                alert('enter area')
+            }
+        }
+
+         {
+            info = {};
+            info.name = value1;
+            info.gender = value2;
+            info.area = value3;
+            if ((value1 == '') ||(value2 == '')||(value3 == '')){}
+            else{
+            details.push(info)
+            console.log(details)
+            Clear()
+            }
+           
+        }
+    }
+        function change() {
+            var value1 = document.getElementById('nm').value;
+            value2 = document.getElementById('gd').value;
+            value3 = document.getElementById('ar').value;
+            val = document.getElementById('number').value;
+
+            details[val-1].name = value1;
+            details[val-1].gender = value2;
+            details[val-1].area =value3;
+            if ((value1 == '') ||(value2 == '')||(value3 == '')){}
+            else{
+            console.log(details)
+            Clear()
+
+            }
+           
+        }
+        function Clear() {
+            document.getElementById('nm').value = null
+            document.getElementById('gd').value = null
+            document.getElementById('ar').value = null
+            document.getElementById('number').value = null;
+        }
+    function edit() {
+        val = document.getElementById('number').value;
+
+        if(val == ''&& val.le){alert('Enter the form no')}
+        else{
+              document.getElementById('nm').value = details[val - 1].name;
+              document.getElementById('gd').value = details[val -1].gender;
+              document.getElementById('ar').value = details[val -1].area;
+        }
+    }
+    function check(){
+        var value1 = document.getElementById('nm').value;
+        value2 = document.getElementById('gd').value;
+        value3 = document.getElementById('ar').value;
+        val = document.getElementById('number').value;
+        
+        if ((val)>0){
+            change()
+        }
+        else{
+            save()
+        }
+    }
+</script>
+
+</html>
