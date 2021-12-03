@@ -1,0 +1,108 @@
+<html>
+<style>
+    table,
+    th,
+    td,
+    tr {
+        width:auto;
+        border: 1px solid burlywood;
+        background-color: crimson;
+    }
+
+
+    button {
+        background-color: darkcyan;
+    }
+
+    #pos {
+        background-color: darkolivegreen;
+        margin: 10%;
+        text-align: center;
+    }
+    .area{
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div style="display: flex;">
+        <div class='area'>
+            <button> name <input type='text' id='n' /></button>
+            <div> <button>Expense<input type='number' id='e' /></button></div>
+            <div><button>Date <input type='date' id='d' /></button><br></div>
+            <div  id="pos"><button onclick='displayDetails()'>+</button></div>
+        </div>
+
+        <div class='area'>
+            <table>
+                <tr>
+                    <th>name</th>
+                    <th>Expense</th>
+                    <th>Date</th>
+                </tr>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        var details = [];
+        function displayDetails() {
+            var str = '';
+
+            let a = '';
+            //function submit() {
+
+            Name = document.getElementById('n').value
+            Expense = document.getElementById('e').value
+            Date = document.getElementById('d').value
+
+
+            obj = {};
+            obj.name = Name;
+            obj.expense = Expense;
+            obj.date = Date;
+
+            details.push(obj);
+
+
+            //console.log(details[0]);
+            for (var i = 0; i < details.length; i++) {
+
+                str += '<tr><td> ' + details[i].name + '</td><td> ' + details[i].expense + '</td><td> ' + details[i].date + '</td></tr>'
+                console.log(str);
+            }
+            document.getElementById('tbody').innerHTML = str;
+
+        }
+
+        // details.forEach(myFunction)
+
+        // function myFunction(item) {
+
+        //     let a = item;
+        //         document.getElementById('N').value = a.name;
+        //         document.getElementById('E').value = a.expense;
+        //         document.getElementById('D').value = a.date;
+
+        // }
+        clear();
+
+        // }
+
+        function clear() {
+            document.getElementById('n').value = " "
+            document.getElementById('e').value = ""
+            document.getElementById('d').value = " "
+
+
+        }
+    </script>
+</body>
+
+
+
+
+
+</html>
